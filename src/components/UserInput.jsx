@@ -1,25 +1,20 @@
 import { useState } from "react";
 
 export default function UserInput() {
-  const [initialInvestment, setInitialInvestment] = useState(0);
-  const [annualInvestment, setAnnualInvestment] = useState(0);
-  const [expectedReturn, setExpectedReturn] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const [userInput, setUserInput] = useState({
+    initialInvestment: 0,
+    annualInvestment: 0,
+    expectedReturn: 0,
+    duration: 0,
+  });
 
-  function handleInitialInvestmentChange(event) {
-    setInitialInvestment(event.target.value);
-  }
-
-  function handleAnnualInvestmentChange(event) {
-    setAnnualInvestment(event.target.value);
-  }
-
-  function handleExpectedReturnChange(event) {
-    setExpectedReturn(event.target.value);
-  }
-
-  function handleDurationChange(event) {
-    setDuration(event.target.value);
+  function handleUserInputChange(key, value) {
+    setUserInput((prev) => {
+      return {
+        ...prev,
+        [key]: value,
+      };
+    });
   }
 
   return (
@@ -30,8 +25,10 @@ export default function UserInput() {
           <input
             type="number"
             id="initial-investment"
-            value={initialInvestment}
-            onChange={handleInitialInvestmentChange}
+            value={userInput.initialInvestment}
+            onChange={(event) =>
+              handleUserInputChange("initialInvestment", event.target.value)
+            }
             required
           />
         </p>
@@ -40,8 +37,10 @@ export default function UserInput() {
           <input
             type="number"
             id="annual-investment"
-            value={annualInvestment}
-            onChange={handleAnnualInvestmentChange}
+            value={userInput.annualInvestment}
+            onChange={(event) =>
+              handleUserInputChange("annualInvestment", event.target.value)
+            }
             required
           />
         </p>
@@ -52,8 +51,10 @@ export default function UserInput() {
           <input
             type="number"
             id="expected-return"
-            value={expectedReturn}
-            onChange={handleExpectedReturnChange}
+            value={userInput.expectedReturn}
+            onChange={(event) =>
+              handleUserInputChange("expectedReturn", event.target.value)
+            }
             required
           />
         </p>
@@ -62,8 +63,10 @@ export default function UserInput() {
           <input
             type="number"
             id="duration"
-            value={duration}
-            onChange={handleDurationChange}
+            value={userInput.duration}
+            onChange={(event) =>
+              handleUserInputChange("duration", event.target.value)
+            }
             required
           />
         </p>
