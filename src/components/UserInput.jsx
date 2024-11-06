@@ -1,22 +1,4 @@
-import { useState } from "react";
-
-export default function UserInput() {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 0,
-    annualInvestment: 0,
-    expectedReturn: 0,
-    duration: 0,
-  });
-
-  function handleUserInputChange(key, value) {
-    setUserInput((prev) => {
-      return {
-        ...prev,
-        [key]: value,
-      };
-    });
-  }
-
+export default function UserInput({userInput, handleUserInputChange}) {
   return (
     <section id="user-input">
       <div className="input-group">
@@ -47,7 +29,7 @@ export default function UserInput() {
       </div>
       <div className="input-group">
         <p>
-          <label htmlFor="expected-return">Expected Return:</label>
+          <label htmlFor="expected-return">Expected Return (%):</label>
           <input
             type="number"
             id="expected-return"
