@@ -43,10 +43,10 @@ export default function AuthInputs() {
         </p>
       </div>
       <div className="actions">
-        <button type="button" className="text-button">
+        <button className='font-semibold rounded px-4 py-2 uppercase text-stone-900 bg-amber-400 hover:bg-amber-500' type="button" >
           Create a new account
         </button>
-        <button className='button' onClick={handleLogin}>Sign In</button>
+        <button className='font-semibold rounded px-4 py-2 uppercase text-stone-900 bg-amber-400 hover:bg-amber-500' onClick={handleLogin}>Sign In</button>
       </div>
     </div>
   );
