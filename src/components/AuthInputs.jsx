@@ -18,14 +18,14 @@ export default function AuthInputs() {
   }
 
   const labelStyle = 'mb-2 font-bold uppercase text-xs text-gray-600';
-  const inputStyle = 'w-full p-3 border rounded border-transparent leading-6 bg-slate-300 shadow';
+  const inputStyle = 'w-full p-1.5 md:p-3 border rounded border-transparent leading-6 bg-slate-300 shadow';
   const invalidLabelStyle = 'text-red-500';
   const invalidInputStyle = 'border-red-500 bg-red-100';
   const emailNotValid = submitted && !enteredEmail.includes('@');
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
   return (
-    <div className='p-2 md:p-8 m-auto w-full' id="auth-inputs">
+    <div className='p-4 md:p-8 mx-auto max-w-sm rounded-xl md:rounded-2xl bg-gradient-to-t from-stone-700 to-stone-900' id="auth-inputs">
       <div className="flex flex-col mb-6 gap-2">
         <p>
           <label className={labelStyle + (emailNotValid ? ` ${invalidLabelStyle}` : '')}>Email</label>
@@ -46,11 +46,11 @@ export default function AuthInputs() {
           />
         </p>
       </div>
-      <div className="flex justify-center md:justify-end gap-2 md:gap-4">
-        <button className='text-xs md:text-base font-semibold rounded border-none px-4 py-2 uppercase text-stone-900 bg-amber-400 hover:bg-amber-500' type="button" >
+      <div className="flex justify-center md:justify-end gap-2 md:gap-4 py-1 pb-2 md:py-0 md:pb-0">
+        <button className='w-3/5 text-xs md:text-sm font-semibold rounded border-none px-4 py-2 md:py-0.5 uppercase text-stone-900 bg-amber-400 hover:bg-amber-500' type="button" >
           Create a new account
         </button>
-        <button className='text-xs md:text-base font-semibold rounded border-none px-4 py-2 uppercase text-stone-900 bg-amber-400 hover:bg-amber-500' onClick={handleLogin}>Sign In</button>
+        <button className='w-2/5 text-xs md:text-sm font-semibold rounded border-none px-4 py-2 md:py-0.5 uppercase text-stone-900 bg-amber-400 hover:bg-amber-500' onClick={handleLogin}>Sign In</button>
       </div>
     </div>
   );
