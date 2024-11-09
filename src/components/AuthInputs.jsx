@@ -17,36 +17,40 @@ export default function AuthInputs() {
     setSubmitted(true);
   }
 
+  const labelStyle = 'mb-2 font-bold uppercase text-xs text-gray-600';
+  const inputStyle = 'w-full p-3 border rounded border-transparent leading-6 bg-slate-300 shadow';
+  const invalidLabelStyle = 'text-red-500';
+  const invalidInputStyle = 'border-red-500 bg-red-100';
   const emailNotValid = submitted && !enteredEmail.includes('@');
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
   return (
-    <div id="auth-inputs">
-      <div className="controls">
+    <div className='p-2 md:p-8 m-auto w-full' id="auth-inputs">
+      <div className="flex flex-col mb-6 gap-2">
         <p>
-          <label>Email</label>
+          <label className={labelStyle + (emailNotValid ? ` ${invalidLabelStyle}` : '')}>Email</label>
           <input
             type="email"
-            className={emailNotValid ? 'invalid' : undefined}
+            className={inputStyle + (emailNotValid ? ` ${invalidInputStyle}` : '')}
             onChange={(event) => handleInputChange('email', event.target.value)}
           />
         </p>
         <p>
-          <label>Password</label>
+          <label className={labelStyle + (passwordNotValid ? ` ${invalidLabelStyle}` : '')}>Password</label>
           <input
             type="password"
-            className={passwordNotValid ? 'invalid' : undefined}
+            className={inputStyle + (passwordNotValid ? ` ${invalidInputStyle}` : '')}
             onChange={(event) =>
               handleInputChange('password', event.target.value)
             }
           />
         </p>
       </div>
-      <div className="actions">
-        <button className='font-semibold rounded px-4 py-2 uppercase text-stone-900 bg-amber-400 hover:bg-amber-500' type="button" >
+      <div className="flex justify-center md:justify-end gap-2 md:gap-4">
+        <button className='text-xs md:text-base font-semibold rounded border-none px-4 py-2 uppercase text-stone-900 bg-amber-400 hover:bg-amber-500' type="button" >
           Create a new account
         </button>
-        <button className='font-semibold rounded px-4 py-2 uppercase text-stone-900 bg-amber-400 hover:bg-amber-500' onClick={handleLogin}>Sign In</button>
+        <button className='text-xs md:text-base font-semibold rounded border-none px-4 py-2 uppercase text-stone-900 bg-amber-400 hover:bg-amber-500' onClick={handleLogin}>Sign In</button>
       </div>
     </div>
   );
