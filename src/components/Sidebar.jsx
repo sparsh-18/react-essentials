@@ -4,12 +4,12 @@ export default function Sidebar({ projects }) {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const handleProjectClick = (projectId) => {
-    console.log("Selected Project: ", projectId);
+    // console.log("Selected Project: ", projectId);
     setSelectedProject(projectId);
   };
 
   return (
-    <aside className="bg-stone-900 text-stone-50 px-8 py-16 rounded-r-xl w-1/3 md:w-72">
+    <aside className="bg-stone-900 text-stone-50 px-8 py-16 rounded-tr-xl w-1/3 md:w-72">
       <h2 className="uppercase mb-8 font-bold text-stone-200 md:text-xl tracking-wide">
         Your Projects
       </h2>
