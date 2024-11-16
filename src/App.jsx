@@ -1,4 +1,5 @@
 import Sidebar from "./components/Sidebar";
+import NewProject from "./components/NewProject";
 
 function App() {
 
@@ -7,8 +8,9 @@ function App() {
   ]
 
   return (
-    <main className="h-screen my-8">
+    <main className="h-screen flex gap-8">
       <Sidebar projects={projects}/>
+      <NewProject/>
     </main>
   );
 }
