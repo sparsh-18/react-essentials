@@ -1,4 +1,5 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
+import { createPortal } from "react-dom";
 
 const ResultModal = forwardRef(function ResultModal(
   { targetTime, timeRemaining, resetTimer },
@@ -18,7 +19,8 @@ const ResultModal = forwardRef(function ResultModal(
   });
 
   // dialog can be closed by pressing the Escape key therefore we need to reset the timer on close
-  return (
+  // createPortal is used to render the dialog element in the #modal div to avoid nesting of the modal
+  return createPortal(
     <dialog ref={dialog} className="result-modal" onClose={resetTimer}>
       <h2>You {result}</h2>
       <p>
@@ -31,7 +33,8 @@ const ResultModal = forwardRef(function ResultModal(
       <form method="dialog" onSubmit={resetTimer}>
         <button>Close</button>
       </form>
-    </dialog>
+    </dialog>,
+    document.getElementById("modal")
   );
 });
 
